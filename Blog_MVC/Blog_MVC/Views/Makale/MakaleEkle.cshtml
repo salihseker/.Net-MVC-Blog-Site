@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Makale Ekle";
+}
+
+<form action="/Makale/MakaleEkle" method="post" enctype="multipart/form-data">
+    <table class="table table-striped">
+        <tr>
+            <td>
+                Başlık :
+            </td>
+            <td>
+                <input type="text" name="Baslik" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                İçerik :
+            </td>
+            <td>
+                <input type="text" name="Icerik" value="" />
+            </td>
+        <tr>
+            <td>
+                Kategori :
+            </td>
+            <td>
+                <select name="KategoriID">
+                    @foreach (Blog_MVC.Models.Kategori item in ViewBag.Kategoriler)
+                    {
+                        <option value="@item.KategoriId">@item.Adi</option>
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Resim :
+            </td>
+            <td>
+                <input type="file" name="resim" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" name="name" value="Ekle" />
+            </td>
+        </tr>
+    </table>
+</form>
+

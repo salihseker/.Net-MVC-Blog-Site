@@ -1,0 +1,85 @@
+﻿@{
+    Layout = null;
+
+}
+
+
+
+@model IEnumerable<Blog_MVC.Models.Makale>
+@helper IcerikKisalt(string icerik)
+{
+if (icerik.Length > 300)
+{
+        @icerik.Substring(0, 300)
+}
+else
+{
+        @icerik
+}
+}
+
+@section head{
+<script src="~/Content/style/js/jquery.min.js"></script>
+<script>
+    $(document).ready(function myfunction() {
+
+        $("a.begen").click(function myfunction() {
+            var id = $(this).data("id");
+            var link = "/Makale/Begen/" + id;
+            $.ajax({
+                type: "GET",
+                url: link,
+                success: function myfunction(result) {
+                    $("a.begen").html(result);
+                }
+
+            })
+        });
+
+    });
+
+</script>
+}
+
+<div class="blog-posts col-blog">
+    @foreach (Blog_MVC.Models.Makale mkl in Model)
+    {
+        <div class="post row">
+            <div class="col-sm-4">
+                <figure>
+                    <a href="/Makale/Detay/@mkl.MakaleId">
+                        <div class="text-overlay">
+                            <div class="info"><span>Devamını Oku</span></div>
+                        </div>
+                        <img src="@mkl.Resim.OrtaBoyut" alt="" />
+                    </a>
+                </figure>
+            </div>
+            <div class="col-sm-8 post-content">
+                <div class="meta">
+                    <span class="date">@mkl.EklenmeTarihi.ToShortDateString()</span><span class="comments"><a href="#">@mkl.Yorums.Count </a><i class="icon-chat-1"></i></span>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <span>
+                            <a class="begen" data-id="@mkl.MakaleId" href="javascript:void(0)">
+                                @mkl.Begeni
+                            </a>
+                            <img src="/Content/images/like.png" />
+                        </span>
+
+                    }                    
+                    <span>
+                        <a href="#">
+                            @mkl.GoruntulenmeSayisi
+                        </a>
+                            <img src="/Content/images/view.png" />
+                    </span>
+                </div>
+                <h2 class="post-title"><a href="/Makale/Detay/@mkl.MakaleId">@mkl.Baslik</a></h2>
+                <p>@IcerikKisalt(mkl.Icerik)</p>
+            </div>
+        </div>
+    }
+
+
+</div>

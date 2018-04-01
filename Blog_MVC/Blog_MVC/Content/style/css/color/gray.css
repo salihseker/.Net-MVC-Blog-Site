@@ -1,0 +1,153 @@
+.spinner,
+.grid-loader,
+#fancybox-loading div {
+    border-left: 3px solid rgba(93, 93, 93,.15);
+    border-right: 3px solid rgba(93, 93, 93,.15);
+    border-bottom: 3px solid rgba(93, 93, 93,.15);
+    border-top: 3px solid rgba(93, 93, 93,.8);
+}
+figure a .text-overlay,
+.icon-overlay a .icn-more {
+    background: rgba(93, 93, 93, 0.96);
+}
+.btn,
+.btn-submit {
+    background: #5d5d5d;
+}
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn.active,
+.pagination ul > li > a:hover,
+.pagination ul > li > a:focus,
+.pagination ul > .active > a,
+.pagination ul > .active > span,
+.open >.dropdown-toggle.btn-default,
+footer ul.tag-list li a:hover {
+    background: #4f4f4f;
+}
+a {
+    color: #5d5d5d;
+}
+a.nocolor:hover {
+	color: #5d5d5d;
+}
+.colored {
+    color: #5d5d5d
+}
+.footer a:hover {
+    color: #5d5d5d !important
+}
+.post-title a:hover {
+    color: #5d5d5d
+}
+.section-title:after {
+    color: #5d5d5d;
+}
+.section-title.text-center:before {
+    color: #5d5d5d;
+}
+.black-wrapper a:hover {
+    color: #5d5d5d
+}
+ul.circled li:before {
+    color: #5d5d5d;
+}
+.nav > li > a:hover {
+    background: none;
+    color: #5d5d5d;
+}
+.nav > li.current > a {
+    background: none;
+    color: #5d5d5d;
+}
+.navbar .dropdown-menu li a:hover,
+.navbar .dropdown-menu li a.active {
+    color: #5d5d5d;
+}
+.navbar .nav .open > a,
+.navbar .nav .open > a:hover,
+.navbar .nav .open > a:focus {
+    color: #5d5d5d;
+}
+.navbar .dropdown-menu > li > a:hover,
+.navbar .dropdown-menu > li > a:focus,
+.navbar .dropdown-submenu:hover > a,
+.navbar .dropdown-submenu:focus > a,
+.navbar .dropdown-menu > .active > a,
+.navbar .dropdown-menu > .active > a:hover,
+.navbar .dropdown-menu > .active > a:focus {
+    color: #5d5d5d;
+}
+.button-group.dropdown-menu button.is-checked {
+    color: #5d5d5d;
+}
+.button-group.dropdown-menu button:hover {
+    color: #5d5d5d !important;
+}
+.sp-arrow:hover {
+	background: #5d5d5d;
+}
+.sp-button:hover,
+.sp-selected-button {
+	background: #5d5d5d;
+}
+.sp-selected-thumbnail {
+	border-bottom: 3px solid #5d5d5d;
+}
+.meta a:hover {
+    color: #5d5d5d
+}
+.sidebox a:hover {
+    color: #5d5d5d !important
+}
+ul.tag-list li a:hover {
+    background: #5d5d5d;
+}
+#comments .info h2 a:hover {
+    color: #5d5d5d
+}
+#comments a.reply-link:hover {
+    color: #5d5d5d
+}
+.tooltip-inner {
+    background-color: #5d5d5d;
+}
+.tooltip.top .tooltip-arrow,
+.tooltip.top-left .tooltip-arrow,
+.tooltip.top-right .tooltip-arrow {
+    border-top-color: #5d5d5d
+}
+.tooltip.right .tooltip-arrow {
+    border-right-color: #5d5d5d
+}
+.tooltip.left .tooltip-arrow {
+    border-left-color: #5d5d5d
+}
+.tooltip.bottom .tooltip-arrow,
+.tooltip.bottom-left .tooltip-arrow,
+.tooltip.bottom-right .tooltip-arrow {
+    border-bottom-color: #5d5d5d
+}
+.tabs-top .tab a:hover,
+.tabs-top .tab.active a {
+    background: #5d5d5d;
+}
+.panel-title > a:hover,
+.panel-active a {
+    background: #5d5d5d;
+}
+.progress-list li em {
+    color: #5d5d5d;
+}
+.progress.plain .bar {
+    background: #5d5d5d;
+}
+.pricing .plan h4 span {
+    color: #5d5d5d
+}
+.fancybox-close:hover,
+.fancybox-prev span:hover,
+.fancybox-next span:hover {
+    background: #5d5d5d !important;
+}

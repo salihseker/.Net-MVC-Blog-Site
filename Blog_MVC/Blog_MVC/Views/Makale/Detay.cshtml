@@ -1,0 +1,174 @@
+﻿
+@{
+    ViewBag.Title = Model.Baslik;
+}
+@section head{
+
+    <script src="~/Content/style/js/jquery.min.js"></script>
+    <script>
+        $(document).ready(function myfunction() {
+
+            var id = @Model.MakaleId;
+            var link = "/Makale/Goruntulendi/" + id;
+            $.ajax({
+                type: "GET",
+                url: link,
+                success: function myfunction(result) {
+                    $("a.goruntulenme").html(result);
+                }
+
+            });
+
+
+            $("a.begen").click(function myfunction() {
+                var id = $(this).data("id");
+                var link = "/Makale/Begen/" + id;
+                $.ajax({
+                    type: "GET",
+                    url: link,
+                    success: function myfunction(result) {
+                        $("a.begen").html(result);
+                    }
+
+                })
+            });
+
+        }
+
+
+
+        )
+
+
+    </script>
+}
+
+@model Blog_MVC.Models.Makale
+
+<div class="blog-posts classic-blog single">
+    <div class="post format-image">
+        <div class="meta">
+            <span class="date">@Model.EklenmeTarihi</span><span class="categories">
+                <!----><a href="/Kategori/Index/@Model.KategoriID">@Model.Kategori.Adi</a>
+            </span><span class="comments"><a href="#Yorum">@Model.Yorums.Count <i class="icon-chat-1"></i></a></span>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <span>
+                    <a class="begen" data-id="@Model.MakaleId" href="javascript:void(0)">
+                        @Model.Begeni
+                    </a>
+                    <img src="/Content/images/like.png" />
+                </span>
+
+            }
+            <span>
+                <a class="goruntulenme" href="#">
+                    @Model.GoruntulenmeSayisi
+                </a>
+                <img src="/Content/images/view.png" />
+            </span>
+        </div>
+        <h1 class="post-title">@Model.Baslik</h1>
+        <figure class="main">
+            <img src="@Model.Resim.BuyukBoyut" alt="" />
+        </figure>
+        <div class="post-content">
+            <p>@Model.Icerik</p>
+            <div class="meta tags">
+
+                @foreach (Blog_MVC.Models.Etiket etk in Model.Etikets)
+                {
+                    <a href="/Etiket/Index/@etk.EtiketId">@etk.Adi</a>
+                }
+            </div>
+            <div class="click-share">
+                <ul>
+                    <li><a class="btn share-facebook" href="#">Like</a></li>
+                    <li><a class="btn share-twitter" href="#">Tweet</a></li>
+                    <li><a class="btn share-pinterest" href="#">Pin it</a></li>
+                </ul>
+            </div>
+            <!-- /.share-links -->
+
+        </div>
+    </div>
+    <!-- /.post -->
+
+</div>
+<!-- /.blog-posts -->
+
+<div class="about-author dark-wrapper">
+    <div class="author-image">
+        @if (Model.Kullanici.Resim != null)
+        {
+            <img alt="" src="@Model.Kullanici.Resim.OrtaBoyut" />
+        }
+        else
+        {
+            <img alt="" src="~/Content/images/defaultUser.png" />
+        }
+
+    </div>
+    <div class="author-details">
+        <h3>@Model.Kullanici.Adi @Model.Kullanici.Soyadi Hakkında</h3>
+        <p>@Model.Kullanici.Aciklama</p>
+        <ul class="social">
+            <li><a href="#"><i class="icon-s-twitter"></i></a></li>
+            <li><a href="#"><i class="icon-s-facebook"></i></a></li>
+            <li><a href="#"><i class="icon-s-pinterest"></i></a></li>
+            <li><a href="#"><i class="icon-s-dribbble"></i></a></li>
+            <li><a href="#"><i class="icon-s-linkedin"></i></a></li>
+        </ul>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="divide100"></div>
+<a id="Yorum" />
+<div id="comments">
+    <h3>@Model.Yorums.Count Yorum</h3>
+    <ol id="singlecomments" class="commentlist">
+        @foreach (Blog_MVC.Models.Yorum yorum in Model.Yorums)
+        {
+            <li>
+                <div class="comment-wrapper">
+                    <div class="user"><img alt="" src="/Content/images/defaultUser.png" class="avatar" /></div>
+                    <div class="message">
+                        <div class="arrow-box">
+                            <div class="info">
+                                <h2><a href="#">@yorum.AdSoyad</a></h2>
+                                <div class="meta"> <span class="date">@yorum.EklenmeTarihi.Value.ToShortDateString()</span></div>
+                            </div>
+                            <p>@yorum.Yorum1</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        }
+
+    </ol>
+</div>
+<!-- /#comments -->
+<div class="divide100"></div>
+<div class="comment-form-wrapper">
+    <h3>Düşüncelerini paylaşmak istermisin ? </h3>
+    <p>Email adresiniz yayınlanmayacaktır. Zorunlu alanlar * ile belirtilmiştir.</p>
+    <form class="comment-form" name="form_name" action="/Makale/YorumYaz/@Model.MakaleId" method="post">
+        <div class="name-field">
+            <label><i class="icon-user"></i></label>
+            <input type="text" name="isim" placeholder="İsim Soyisim*" />
+        </div>
+        <div class="email-field">
+            <label><i class="icon-mail-alt"></i></label>
+            <input type="text" name="email" placeholder="Email*" />
+        </div>
+        <div class="website-field">
+            <label><i class="icon-globe"></i></label>
+            <input type="text" name="website" placeholder="Website" />
+        </div>
+        <div class="message-field">
+            <textarea name="Yorum" id="textarea" rows="5" cols="30" placeholder="Yorumunuz..."></textarea>
+        </div>
+        <input type="submit" value="Submit" name="submit" class="btn btn-submit" />
+    </form>
+</div>
+

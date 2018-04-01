@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Üye Ol";
+}
+
+<form action="/Kullanici/UyeOl" method="post">
+    <table>
+        <tr>
+            <td>
+                Adı :
+            </td>
+            <td>
+                <input type="text" name="Adi" value="" />
+            </td>
+        <tr>
+            <td>
+                Soyadı :
+            </td>
+            <td>
+                <input type="text" name="Soyadi" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Kullanıcı Adı :
+            </td>
+            <td>
+                <input type="text" name="KullaniciAdi" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Parola :
+            </td>
+            <td>
+                <input type="password" name="Parola" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Mail :
+            </td>
+            <td>
+                <input type="email" name="MailAdres" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Cinsiyet :
+            </td>
+            <td>
+                <input type="radio" name="rdBay"  value="Bay" /><span>Bay</span><br />
+                <input type="radio" name="rdBayan" value="Bayan" /><span>Bayan</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Doğum Tarihi :
+            </td>
+            <td>
+                <input type="date" name="DogumTarihi" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                
+            </td>
+            <td>
+                <input type="submit" name="" value="Üye Ol" />
+            </td>
+        </tr>
+    </table>
+
+</form>
+
